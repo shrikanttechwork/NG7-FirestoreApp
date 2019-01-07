@@ -1,0 +1,34 @@
+<h3>Employee Register</h3>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="service.formData.id">
+  <div class="form-group">
+    <input name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" class="form-control" placeholder="Full name"
+      required>
+    <div *ngIf="fullName.invalid && fullName.touched" class="validation-error">This field is required.</div>
+  </div>
+  <div class="form-group">
+    <input name="position" #position="ngModel" [(ngModel)]="service.formData.position" class="form-control" placeholder="Position"
+      required>
+    <div *ngIf="position.invalid && position.touched" class="validation-error">This field is required.</div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input name="empCode" #empCode="ngModel" [(ngModel)]="service.formData.empCode" class="form-control" placeholder="Emp Code"
+        required>
+      <div *ngIf="empCode.invalid && empCode.touched" class="validation-error">This field is required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input name="mobileNo" #mobileNo="ngModel" [(ngModel)]="service.formData.mobileNo" class="form-control"
+        placeholder="Mobile No" required>
+      <div *ngIf="mobileNo.invalid && mobileNo.touched" class="validation-error">This field is required.</div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <button type="submit" [disabled]="form.invalid" class="btn-btn-lg btn-block btn-primary">SUBMIT</button>
+    </div>
+    <div class="form-group col-md-6">
+      <button type="reset" [disabled]="form.invalid" class="btn-btn-lg btn-block btn-info">RESET</button>
+    </div>
+  </div>
+</form>
